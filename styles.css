@@ -7,6 +7,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .btree {
@@ -19,20 +21,21 @@ body {
 .background-svg {
     background-image: url('assets/bg.svg');
     background-repeat: no-repeat;
+    background-position: center center;
     animation: moveBackground 10s infinite linear;
 }
 
 @keyframes moveBackground {
     0% {
-        background-position: 10% 10%;
+        background-position: center center;
     }
 
     50% {
-        background-position: 15% 15%;
+        background-position: 50% 30%;
     }
 
     100% {
-        background-position: 10% 10%;
+       background-position: center center;
     }
 }
 
