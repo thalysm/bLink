@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTree Links</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body class="background-svg">
+    <img src="assets/logo.svg" alt="Logo bTree">
+    <p class="btree">
+        bTree
+    </p>
+    <div id="social"></div>
+    <div id="links"></div>
+    <script>
+        const data = [
+            {
+                "Nome": "PlanejaConta",
+                "url": "https://planejaconta.web.app",
+                "url_image": "assets/icon-planejaconta.svg"
+            },
+            {
+                "Nome": "bTree Auth",
+                "url": "https://btreeauth.web.app/",
+                "url_image": "assets/icon-bauth.svg"
+            },
+            {
+                "Nome": "Pine UI",
+                "url": "https://www.behance.net/gallery/161882269/Design-System-Pine-UI-v1-bTree",
+                "url_image": "assets/icon-pineui.svg"
+            }
+        ]
+
+        const social_data = [
+            {
+                "url": "https://www.instagram.com/btreedev/",
+                "url_image": "assets/icon-instagram.svg"
+            },
+            {
+                "url": "https://www.threads.net/@btreedev",
+                "url_image": "assets/icon-threads.svg"
+            },
+            {
+                "url": "https://github.com/BtreeDevelopers",
+                "url_image": "assets/icon-github.svg"
+            }
+        ]
+
+        const links = document.getElementById('links');
+
+        data.forEach((value) => {
+            const link = document.createElement('a');
+            link.classList.add('card');
+            link.setAttribute('href', value.url);
+            link.setAttribute('target', '_blank');
+
+            const card = document.createElement('div');
+            card.classList.add('link');
+
+
+            const imagem = document.createElement('img');
+            imagem.classList.add('image');
+            imagem.src = value.url_image;
+
+            const titleSubtitleWrapper = document.createElement('div');
+            titleSubtitleWrapper.classList.add('titleSubtitle')
+
+            const title = document.createElement('h4');
+            title.classList.add('title');
+            title.innerHTML = value.Nome;
+            titleSubtitleWrapper.appendChild(title);
+
+            const subtitle = document.createElement('p');
+            subtitle.classList.add('subtitle');
+            subtitle.innerHTML = value.url;
+
+
+            if (subtitle.innerHTML.length > 30) {
+                subtitle.innerHTML = subtitle.innerHTML.substring(0, 30) + '...';
+            }
+
+            titleSubtitleWrapper.appendChild(subtitle);
+
+            const icon = document.createElement('img');
+            icon.classList.add('icon');
+            icon.src = 'assets/icon-ext.svg';
+
+            link.appendChild(imagem);
+            link.appendChild(titleSubtitleWrapper);
+            link.appendChild(icon);
+
+            card.appendChild(link);
+
+            links.appendChild(card);
+        });
+
+        const social = document.getElementById('social')
+
+        social_data.forEach((v)=>{
+            const link = document.createElement('a');
+            link.classList.add('cardsocial');
+            link.setAttribute('href', v.url);
+            link.setAttribute('target', '_blank');
+
+
+            const imagem = document.createElement('img');
+            imagem.classList.add('imagesocial');
+            imagem.src = v.url_image;
+
+            link.appendChild(imagem);
+            social.appendChild(link)
+
+        })
+
+    </script>
+</body>
+
+</html>
